@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Temporizador Pomodoro</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+  <h1>Temporizador Pomodoro</h1>
+  <div class="card">
+    <div class="tabs" role="group" aria-label="Tipo de sesión">
+      <button class="tab" data-tipo="trabajo" aria-pressed="true">Trabajo</button>
+      <button class="tab" data-tipo="descanso" aria-pressed="false">Descanso corto</button>
+      <button class="tab" data-tipo="largo" aria-pressed="false">Descanso largo</button>
+    </div>
+
+    <p class="estado" id="estado">Trabajo</p>
+    <div class="tiempo" id="tiempo" role="timer" aria-label="Tiempo restante">25:00</div>
+    <div class="barra" aria-hidden="true"><div id="progreso"></div></div>
+
+    <div class="botones">
+      <button class="principal" id="inicio">Iniciar</button>
+      <button class="secundario" id="reiniciar">Reiniciar</button>
+    </div>
+
+    <p class="contador">Sesiones de trabajo completadas: <strong id="contador">0</strong></p>
+
+    <details>
+      <summary>Configuración</summary>
+      <div class="config">
+        <label>Trabajo (min) <input type="number" id="c-trabajo" min="1" max="120" inputmode="numeric"></label>
+        <label>Descanso corto (min) <input type="number" id="c-descanso" min="1" max="60" inputmode="numeric"></label>
+        <label>Descanso largo (min) <input type="number" id="c-largo" min="1" max="60" inputmode="numeric"></label>
+      </div>
+      <p class="nota">El descanso largo llega tras 4 sesiones de trabajo.</p>
+    </details>
+  </div>
+  <div class="sr" aria-live="polite" id="aviso"></div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
